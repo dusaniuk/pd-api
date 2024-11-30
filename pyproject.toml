@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pd-api"
+version = "0.1.0"
+description = ""
+authors = ["Yaroslav Dusaniuk <20459871+dusaniuk@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+black = "^24.10.0"
+fastapi = {extras = ["standard"], version = "^0.115.5"}
+uvicorn = "^0.32.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "uvicorn:main"
