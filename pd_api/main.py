@@ -1,10 +1,16 @@
 from fastapi import FastAPI
 
-from pd_api.routes import transactions
+from .deps.database import create_db_and_tables
+from .routes import transactions
 
 app = FastAPI()
 
-app.include_router(transactions.router)
+app.include_router(transactions.router, prefix="/api")
+
+
+@app.on_event("startup")
+def startup():
+    create_db_and_tables()
 
 
 @app.get("/")
